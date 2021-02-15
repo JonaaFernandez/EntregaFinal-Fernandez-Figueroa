@@ -1,4 +1,5 @@
 <template>
+    
     <div class="contenedor-grande">
 
         <div class="col-sm-12  col-md-12 col-lg-12  d-flex p-2 bd-highlight">

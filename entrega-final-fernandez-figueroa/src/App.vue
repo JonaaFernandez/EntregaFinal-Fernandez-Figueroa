@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    
-    <BarraNav></BarraNav>
+      <BarraNav></BarraNav>
+       <router-view></router-view>
     <div class="container flow">
-        <HomePage></HomePage>  
+       <!--  <HomePage></HomePage>   -->
+        
         <Footer></Footer>
     </div>
 
@@ -12,15 +13,17 @@
 
 <script>
     import BarraNav from './components/BarraNav.vue'
-    import HomePage from './components/HomePage.vue'
+    /* import HomePage from './components/HomePage.vue'*/
     import Footer from './components/Footer.vue'
+    /* import Historia from './components/Historia.vue' */
 
     export default {
         name: 'App',
         components: {
             BarraNav,
-            HomePage,
+            /*  HomePage,*/
             Footer
+            /*  Historia */
         }
     }
 </script>

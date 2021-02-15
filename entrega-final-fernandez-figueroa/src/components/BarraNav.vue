@@ -15,11 +15,12 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                   
-                    <li class="nav-item active"><a href="../html/index.html" class="nav-link">Home<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item active"> <router-link  to="/" class="nav-link"> Home </router-link> <span class="sr-only">(current)</span></li>
                     <li class="nav-item"><a href="../html/noticias.html" class="nav-link">Noticias</a></li>
-                    <li class="nav-item"><a href="../html/historia.html" class="nav-link">Historia</a></li>
-                    <li class="nav-item"><a href="../html/tickets.html" class="nav-link">Tickets</a></li>
-                </ul>
+
+            <li class="nav-item"> <router-link class="nav-link" to="historia"> Historia</router-link></li>
+            <li class="nav-item"> <router-link class="nav-link" to="tickets"> Tickets</router-link></li>
+               </ul>
             </div>
         </div>
     </nav>
