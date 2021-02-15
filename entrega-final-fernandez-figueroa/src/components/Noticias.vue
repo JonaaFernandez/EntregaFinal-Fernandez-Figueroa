@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="text-danger font-weight-bold mt-4">TODAVIA NO TENEMOS NADA!</h1>
+        <h1 class="text-danger font-weight-bold mt-4">CAMBIE DE TITULO!</h1>
     </div>
 </template>
 <script>
