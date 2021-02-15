@@ -1,9 +1,12 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+/* secciones */
 import App from './App.vue';
 import HomePage from './components/HomePage';
 import Historia from './components/Historia';
-import VueRouter from 'vue-router';
+import Noticias from './components/Noticias';
 import Tickets from './components/Tickets';
+/* importamos bootstrap */
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -12,7 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const routes = [
     { path: "/", component: HomePage },
     { path: "/historia", component: Historia },
-    { path: "/Tickets", component: Tickets },
+    { path: "/tickets", component: Tickets },
+    { path: "/noticias", component: Noticias },
 ];
 
 const router = new VueRouter({
