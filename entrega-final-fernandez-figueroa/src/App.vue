@@ -2,12 +2,8 @@
   <div id="app">
       <BarraNav></BarraNav>
        <router-view></router-view>
-  
+       <Footer></Footer>
        <!--  <HomePage></HomePage>   -->
-        
-        <Footer></Footer>
-
-
   </div>
 </template>
 
