@@ -3,22 +3,19 @@
       <BarraNav></BarraNav>
        <router-view></router-view>
        <Footer></Footer>
-       <!--  <HomePage></HomePage>   -->
+       
   </div>
 </template>
 
 <script>
     import BarraNav from './components/BarraNav.vue'
-    /* import HomePage from './components/HomePage.vue'*/
-    /* import Historia from './components/Historia.vue' */
+
     import Footer from './components/Footer.vue'
 
     export default {
         name: 'App',
         components: {
             BarraNav,
-            /*  HomePage,*/
-            /*  Historia */
             Footer
         }
     }
