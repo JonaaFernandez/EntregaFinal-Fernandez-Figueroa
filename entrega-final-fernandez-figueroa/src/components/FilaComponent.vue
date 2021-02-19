@@ -13,7 +13,7 @@
    
 </template>
 <script>
-    /* import axios from "axios" */
+    import axios from "axios"
     export default {
         props: {
             persona: {
@@ -24,10 +24,10 @@
 
         },
         methods: {
-            eliminarFila() {
-                console.log("Id: ",
-                    this.persona.id, "NOMBRE: ",
-                    this.persona.Nombre);
+            eliminarFila(id) {
+                axios.delete("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id)
+
+
             }
         }
     }
