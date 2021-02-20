@@ -26,7 +26,7 @@
         </div>
         <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirForm()">Agregar Persona</button>
        
-         <div id="formulario" class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
+         <div id="formulario" v-on:abrirElForm="abrilo()" class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
             <div class="p-4">
             <p>Ingrese Nombre</p>
             <input class="m-1" type="text" id="inpNombre" placeholder="Ingresse Nombre">
@@ -99,6 +99,10 @@
                         console.log(error);
                     });
             }
+        },
+        abrilo() {
+            let formulario = document.getElementById("formulario");
+            formulario.classList.remove("d-none");
         },
 
     };

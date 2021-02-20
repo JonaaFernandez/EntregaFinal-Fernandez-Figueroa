@@ -6,8 +6,13 @@
             <td>{{persona.Email}}</td>
             <td>{{persona.Tema}}</td>
             <td>{{persona.Anio}}</td>
-            <td class="d-flex justify-content-around table-dark"> <button class="bg-dark text-warning" @click="obtenerDatos(persona.id)">Editar</button> <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> </td> 
-        </tr>         
+            <td class="d-flex justify-content-around table-dark"> 
+                <button class="bg-dark text-warning" @click="obtenerDatos(persona.id)">Editar</button> 
+                <button class="bg-dark text-warning" @click="eliminarFila(persona.id),pruebaDesplegarForm">Eliminar</button> 
+                <button class="bg-dark text-warning" @click="pruebaMostrar">PRUEBA FORM</button> 
+            </td> 
+
+        </tr>    
 </template>
 <script>
     import axios from "axios"
@@ -21,6 +26,17 @@
 
         },
         methods: {
+            pruebaDesplegarForm() {
+                this.$emit("abrirElForm");
+                let formulario = document.getElementById("formulario");
+                formulario.classList.remove("d-none");
+
+            },
+            abrirForm() {
+                console.log("HOLAAAA");
+                let formulario = document.getElementById("formulario");
+                formulario.classList.remove("d-none");
+            },
             eliminarFila(id) {
                 axios.delete("https://6030477ea1e9d20017af1a35.mockapi.io/listatemas/" + id)
                     .then(response => {
@@ -29,7 +45,7 @@
                     })
             },
             obtenerDatos(id) {
-
+                this.abrirForm();
                 /*  console.log("CLICK EN LA FILA:" + id); */
                 let nombreInput = document.getElementById("inpNombre");
                 let apellidoInput = document.getElementById("inpApellido");
