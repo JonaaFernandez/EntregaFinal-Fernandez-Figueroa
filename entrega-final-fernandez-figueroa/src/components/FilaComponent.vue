@@ -8,7 +8,9 @@
             <td>{{persona.Anio}}</td>
             <td class="d-flex justify-content-around table-dark"> 
                 <button class="bg-dark text-warning" @click="obtenerDatos(persona.id)">Editar</button> 
-                <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
+                 <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
+              <!--  <button class="bg-dark text-warning" @click="obtenerTodos">Eliminar</button>  -->
+
             </td> 
 
         </tr>    
@@ -24,22 +26,35 @@
             },
         },
         methods: {
+            /* CHANCHADA ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBSSOLUTA */
+
             /* pruebaDesplegarForm() {
                 this.$emit("abrirElForm");
                 let formulario = document.getElementById("formulario");
                 formulario.classList.remove("d-none");
             }, */
+
+            obtenerTodos() {
+                axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
+                    .then(response => {
+                        this.personas = response.data
+                        console.log(response.data);
+
+                    })
+                    .catch(e => console.log(e))
+            },
             abrirForm() {
                 console.log("HOLAAAA");
                 let formulario = document.getElementById("formulario");
                 formulario.classList.remove("d-none");
             },
             eliminarFila(id) {
-                axios.delete("https://6030477ea1e9d20017af1a35.mockapi.io/listatemas/" + id)
+                axios.delete("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id)
                     .then(response => {
-                        this.personas = response.id
-                        window.location.reload()
+                        this.personas = response.data.id;
+                        console.log(response.data);
                     })
+
             },
             obtenerDatos(id) {
                 this.abrirForm();
@@ -50,7 +65,7 @@
                 let temaInput = document.getElementById("inpTema");
                 let anioInput = document.getElementById("inpAnio");
 
-                axios.get("https://6030477ea1e9d20017af1a35.mockapi.io/listatemas/" + id, {})
+                axios.get("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id, {})
                     .then(response => {
                         this.personas = response.data
                         console.log(response.data);

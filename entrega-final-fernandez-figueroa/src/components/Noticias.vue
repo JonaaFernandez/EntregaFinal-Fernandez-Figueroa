@@ -38,7 +38,7 @@
             <input class="m-1" type="text" id="inpTema" placeholder="Ingresse Tema">
             <p>Ingrese Año</p>
             <input class="m-1" type="text" id="inpAnio" placeholder="Ingresse Año">
-            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click=agregarFila(),cambiarTitulo()>Insertar</button>
+            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click=agregarFila()>Insertar</button>
         </div>
     </div>
     
@@ -65,9 +65,11 @@
         },
         methods: {
             getDatos() {
-                axios.get('https://6030477ea1e9d20017af1a35.mockapi.io/listatemas')
+                axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
                     .then(response => {
                         this.personas = response.data
+                        console.log(response.data);
+
 
                     })
                     .catch(e => console.log(e))
@@ -84,7 +86,7 @@
                 let temaInput = document.getElementById("inpTema");
                 let anioInput = document.getElementById("inpAnio");
 
-                axios.post('https://6030477ea1e9d20017af1a35.mockapi.io/listatemas', {
+                axios.post('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/', {
                         Nombre: nombreInput.value,
                         Apellido: apellidoInput.value,
                         Email: emailInput.value,
@@ -93,11 +95,13 @@
                     })
                     .then(function(response) {
                         console.log(response);
-                        window.location.reload()
+                        /* ACA ABRIA QUE LLAMAR A getDatos de nuevo para recargar la tabla */
+                        /* no podemos usar esto :  window.location.reload() */
                     })
                     .catch(function(error) {
                         console.log(error);
                     });
+
             }
         },
         abrilo() {
