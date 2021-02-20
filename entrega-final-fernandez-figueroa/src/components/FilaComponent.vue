@@ -8,8 +8,7 @@
             <td>{{persona.Anio}}</td>
             <td class="d-flex justify-content-around table-dark"> 
                 <button class="bg-dark text-warning" @click="obtenerDatos(persona.id)">Editar</button> 
-                <button class="bg-dark text-warning" @click="eliminarFila(persona.id),pruebaDesplegarForm">Eliminar</button> 
-                <button class="bg-dark text-warning" @click="pruebaMostrar">PRUEBA FORM</button> 
+                <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
             </td> 
 
         </tr>    
@@ -22,16 +21,14 @@
                 type: Object,
                 required: true,
                 personas: []
-            }
-
+            },
         },
         methods: {
-            pruebaDesplegarForm() {
+            /* pruebaDesplegarForm() {
                 this.$emit("abrirElForm");
                 let formulario = document.getElementById("formulario");
                 formulario.classList.remove("d-none");
-
-            },
+            }, */
             abrirForm() {
                 console.log("HOLAAAA");
                 let formulario = document.getElementById("formulario");
@@ -53,10 +50,7 @@
                 let temaInput = document.getElementById("inpTema");
                 let anioInput = document.getElementById("inpAnio");
 
-                axios.get("https://6030477ea1e9d20017af1a35.mockapi.io/listatemas/" + id, {
-
-
-                    })
+                axios.get("https://6030477ea1e9d20017af1a35.mockapi.io/listatemas/" + id, {})
                     .then(response => {
                         this.personas = response.data
                         console.log(response.data);

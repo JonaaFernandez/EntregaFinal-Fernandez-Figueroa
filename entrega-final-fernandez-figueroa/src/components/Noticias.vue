@@ -38,7 +38,7 @@
             <input class="m-1" type="text" id="inpTema" placeholder="Ingresse Tema">
             <p>Ingrese Año</p>
             <input class="m-1" type="text" id="inpAnio" placeholder="Ingresse Año">
-            <button class="bg-dark font-weight-bold text-warning border-1 mt-1" @click=agregarFila()>Insertar</button>
+            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click=agregarFila(),cambiarTitulo()>Insertar</button>
         </div>
     </div>
     
@@ -103,6 +103,8 @@
         abrilo() {
             let formulario = document.getElementById("formulario");
             formulario.classList.remove("d-none");
+            /*       let botonInsertar = document.getElementById("botonInsertar");
+                  botonInsertar.innerText = "guardar "; */
         },
 
     };
