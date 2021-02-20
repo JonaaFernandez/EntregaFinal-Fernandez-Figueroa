@@ -48,7 +48,7 @@
         methods: {
             getDatos() {
                 axios
-                    .get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
+                    .get('https://6030477ea1e9d20017af1a35.mockapi.io/listatemas')
                     .then(response => {
                         this.personas = response.data
 
