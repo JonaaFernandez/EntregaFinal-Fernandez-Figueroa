@@ -24,8 +24,26 @@
                     
             </table>
         </div>
-        
+        <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirForm()">Agregar Persona</button>
+       
+         <div id="formulario" class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
+            <div class="p-4">
+            <p>Ingrese Nombre</p>
+            <input class="m-1" type="text" id="inpNombre" placeholder="Ingresse Nombre">
+            <p>Ingrese Apellido</p>
+            <input class="m-1" type="text" id="inpApellido" placeholder="Ingresse Apellido">
+            <p>Ingrese Email</p>
+            <input class="m-1" type="text" id="inpEmail" placeholder="Ingresse Email">
+            <p>Ingrese Tema</p>
+            <input class="m-1" type="text" id="inpTema" placeholder="Ingresse Tema">
+            <p>Ingrese Año</p>
+            <input class="m-1" type="text" id="inpAnio" placeholder="Ingresse Año">
+            <button class="bg-dark font-weight-bold text-warning border-1 mt-1" @click=agregarFila()>Insertar</button>
+        </div>
     </div>
+    
+    
+</div>
 </template>
 
 <script>
@@ -47,16 +65,42 @@
         },
         methods: {
             getDatos() {
-                axios
-                    .get('https://6030477ea1e9d20017af1a35.mockapi.io/listatemas')
+                axios.get('https://6030477ea1e9d20017af1a35.mockapi.io/listatemas')
                     .then(response => {
                         this.personas = response.data
 
                     })
                     .catch(e => console.log(e))
 
+            },
+            abrirForm() {
+                let formulario = document.getElementById("formulario");
+                formulario.classList.remove("d-none");
+            },
+            agregarFila() {
+                let nombreInput = document.getElementById("inpNombre");
+                let apellidoInput = document.getElementById("inpApellido");
+                let emailInput = document.getElementById("inpEmail");
+                let temaInput = document.getElementById("inpTema");
+                let anioInput = document.getElementById("inpAnio");
+
+                axios.post('https://6030477ea1e9d20017af1a35.mockapi.io/listatemas', {
+                        Nombre: nombreInput.value,
+                        Apellido: apellidoInput.value,
+                        Email: emailInput.value,
+                        Tema: temaInput.value,
+                        Anio: anioInput.value,
+                    })
+                    .then(function(response) {
+                        console.log(response);
+                        window.location.reload()
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
             }
         },
+
     };
 </script>
 <style>
