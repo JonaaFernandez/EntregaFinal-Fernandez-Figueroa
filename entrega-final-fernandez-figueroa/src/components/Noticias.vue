@@ -38,7 +38,7 @@
             <input class="m-1" type="text" id="inpTema" placeholder="Ingresse Tema">
             <p>Ingrese Año</p>
             <input class="m-1" type="text" id="inpAnio" placeholder="Ingresse Año">
-            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click=agregarFila()>Insertar</button>
+            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click="agregarFila()">Insertar</button>
         </div>
     </div>
     
@@ -49,6 +49,7 @@
 <script>
     import FilaComponent from './FilaComponent'
     import axios from "axios"
+    
 
     export default {
         components: {
@@ -56,7 +57,8 @@
         },
         data() {
             return {
-                personas: []
+                personas: [],
+                nuevoUsuario: '',
             }
         },
         mounted() {
@@ -66,9 +68,9 @@
         methods: {
             getDatos() {
                 axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
-                    .then(response => {
-                        this.personas = response.data
-                        console.log(response.data);
+                    .then((response) => {
+                        const data = response.data
+                        this.personas = data;
 
 
                     })
@@ -93,10 +95,11 @@
                         Tema: temaInput.value,
                         Anio: anioInput.value,
                     })
-                    .then(function(response) {
-                        console.log(response);
-                        /* ACA ABRIA QUE LLAMAR A getDatos de nuevo para recargar la tabla */
-                        /* no podemos usar esto :  window.location.reload() */
+                    .then((response)=>{
+                        const data = response.data
+                        this.personas.push(response.data);
+                        this.nuevoUsuario = data;
+
                     })
                     .catch(function(error) {
                         console.log(error);

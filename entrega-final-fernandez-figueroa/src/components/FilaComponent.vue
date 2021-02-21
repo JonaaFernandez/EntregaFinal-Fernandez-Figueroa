@@ -23,6 +23,7 @@
                 type: Object,
                 required: true,
                 personas: []
+                
             },
         },
         methods: {
@@ -67,7 +68,7 @@
 
                 axios.get("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id, {})
                     .then(response => {
-                        this.personas = response.data
+                        this.personas = response.data;
                         console.log(response.data);
                         nombreInput.value = this.persona.Nombre;
                         apellidoInput.value = this.persona.Apellido;
