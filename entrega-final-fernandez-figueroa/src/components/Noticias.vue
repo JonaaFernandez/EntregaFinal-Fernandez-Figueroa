@@ -49,7 +49,7 @@
 <script>
     import FilaComponent from './FilaComponent'
     import axios from "axios"
-    
+
 
     export default {
         components: {
@@ -95,10 +95,10 @@
                         Tema: temaInput.value,
                         Anio: anioInput.value,
                     })
-                    .then((response)=>{
+                    .then((response) => {
                         const data = response.data
-                        this.personas.push(response.data);
                         this.nuevoUsuario = data;
+                        this.personas.push(response.data);
 
                     })
                     .catch(function(error) {

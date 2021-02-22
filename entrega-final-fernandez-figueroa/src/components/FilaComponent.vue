@@ -23,17 +23,10 @@
                 type: Object,
                 required: true,
                 personas: []
-                
+
             },
         },
         methods: {
-            /* CHANCHADA ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBSSOLUTA */
-
-            /* pruebaDesplegarForm() {
-                this.$emit("abrirElForm");
-                let formulario = document.getElementById("formulario");
-                formulario.classList.remove("d-none");
-            }, */
 
             obtenerTodos() {
                 axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
@@ -52,6 +45,7 @@
             eliminarFila(id) {
                 axios.delete("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id)
                     .then(response => {
+                        console.log("BORRE DE LA API L PERSONA: " + response.data.Nombre)
                         this.personas = response.data.id;
                         console.log(response.data);
                     })
@@ -66,7 +60,7 @@
                 let temaInput = document.getElementById("inpTema");
                 let anioInput = document.getElementById("inpAnio");
 
-                axios.get("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id, {})
+                axios.get("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id, )
                     .then(response => {
                         this.personas = response.data;
                         console.log(response.data);
