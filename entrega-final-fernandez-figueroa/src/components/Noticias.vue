@@ -73,11 +73,8 @@
                     .then((response) => {
                         const data = response.data
                         this.personas = data;
-
-
                     })
                     .catch(e => console.log(e))
-
             },
             abrirForm() {
                 let formulario = document.getElementById("formulario");
@@ -124,7 +121,7 @@
             }
         },
         /* FIN METHODS */
-    };
+    }; /* fin export default! */
 </script>
 <style>
 
