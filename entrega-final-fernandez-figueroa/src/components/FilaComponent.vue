@@ -7,7 +7,7 @@
             <td>{{persona.Tema}}</td>
             <td>{{persona.Anio}}</td>
             <td class="d-flex justify-content-around table-dark"> 
-                <button class="bg-dark text-warning" @click="obtenerDatos(persona.id)">Editar</button> 
+                <button class="bg-dark text-warning" @click="obtenerDatosEditar(persona.id)">Editar</button> 
                  <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
               <!--  <button class="bg-dark text-warning" @click="obtenerTodos">Eliminar</button>  -->
 
@@ -22,23 +22,26 @@
             persona: {
                 type: Object,
                 required: true,
-                personas: []
-
+                personas: [],
+                nombreVm: '',
+                apellidoVm: '',
+                emailVm: '',
+                temaVm: '',
+                anioVm: '',
             },
         },
         methods: {
 
-            obtenerTodos() {
-                axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
-                    .then(response => {
-                        this.personas = response.data
-                        console.log(response.data);
+            /*   obtenerTodos() {
+                  axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
+                      .then(response => {
+                          this.personas = response.data
+                          console.log(response.data);
 
-                    })
-                    .catch(e => console.log(e))
-            },
+                      })
+                      .catch(e => console.log(e))
+              }, */
             abrirForm() {
-                console.log("HOLAAAA");
                 let formulario = document.getElementById("formulario");
                 formulario.classList.remove("d-none");
             },
@@ -55,24 +58,39 @@
                         });
                     })
             },
-            obtenerDatos(id) {
+            obtenerDatosEditar(id) {
                 this.abrirForm();
-                /*  console.log("CLICK EN LA FILA:" + id); */
-                let nombreInput = document.getElementById("inpNombre");
-                let apellidoInput = document.getElementById("inpApellido");
-                let emailInput = document.getElementById("inpEmail");
-                let temaInput = document.getElementById("inpTema");
-                let anioInput = document.getElementById("inpAnio");
+                console.log("ACA ABAJO");
+                console.log(this.persona.Nombre);
+                console.log(this.persona.Apellido);
+                console.log(this.persona.Email);
+
+                /* LLEVAR ESTOS A CADA INPUT DE NOTICIAS.VUE  
+                            this.persona.Nombre
+                          this.persona.Apellido
+                            this.persona.Email
+                             this.persona.Tema
+                             this.persona.Anio */
 
                 axios.get("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + id, )
                     .then(response => {
+
                         this.personas = response.data;
                         console.log(response.data);
-                        nombreInput.value = this.persona.Nombre;
-                        apellidoInput.value = this.persona.Apellido;
-                        emailInput.value = this.persona.Email;
-                        temaInput.value = this.persona.Tema;
-                        anioInput.value = this.persona.Anio;
+
+                        this.$emit('inyectarDatos'
+                            /* ,
+                                                            this.persona.Nombre, this.persona.Apellido, this.persona.Email, this.persona.Tema, this.persona.Anio */
+                        )
+
+
+
+                        /* nombreInput.value = this.persona.Nombre;
+                            apellidoInput.value = this.persona.Apellido;
+                            emailInput.value = this.persona.Email;
+                            temaInput.value = this.persona.Tema;
+                            anioInput.value = this.persona.Anio; */
+
                     })
                     .catch(e => console.log(e));
 
