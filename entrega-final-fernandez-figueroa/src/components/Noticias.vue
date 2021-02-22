@@ -19,6 +19,8 @@
                     v-for="persona in personas" 
                     :key="persona.id"
                     :persona="persona"
+                    @deleteClicked="deleteClicked"
+                 
                 
                     ></FilaComponent>
                     
@@ -29,7 +31,7 @@
          <div id="formulario" v-on:abrirElForm="abrilo()" class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
             <div class="p-4">
             <p>Ingrese Nombre</p>
-            <input class="m-1" type="text" id="inpNombre" placeholder="Ingresse Nombre">
+            <input class="m-1" type="text" id="inpNombre" placeholder="Ingresse Nombre" >
             <p>Ingrese Apellido</p>
             <input class="m-1" type="text" id="inpApellido" placeholder="Ingresse Apellido">
             <p>Ingrese Email</p>
@@ -105,15 +107,23 @@
                         console.log(error);
                     });
 
+            },
+            abrilo() {
+                let formulario = document.getElementById("formulario");
+                formulario.classList.remove("d-none");
+
+            },
+            deleteClicked( /* e */ ) {
+                /* console.log(e); */
+                axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
+                    .then((response) => {
+                        const data = response.data
+                        this.personas = data;
+                        console.log("LARGO DEL ARREGLO", data);
+                    })
             }
         },
-        abrilo() {
-            let formulario = document.getElementById("formulario");
-            formulario.classList.remove("d-none");
-            /*       let botonInsertar = document.getElementById("botonInsertar");
-                  botonInsertar.innerText = "guardar "; */
-        },
-
+        /* FIN METHODS */
     };
 </script>
 <style>
