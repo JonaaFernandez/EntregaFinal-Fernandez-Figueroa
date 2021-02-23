@@ -33,7 +33,7 @@
         </div>
         <div class="font-weight-bold mb-2 mt-2  d-flex justify-content-center">
             <label class="mt-1">Buscate tu <span class="font-weight-bolder text-danger">NOMBRE</span>  en la lista: </label>
-            <input class="mb-2 ml-2" type="text" v-model="busqueda" placeholder="Ingrese año">
+            <input class="mb-2 ml-2" type="text" v-model="busqueda" placeholder="Ingrese nombre">
         </div>
         <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirFormEditar()">Agregar Persona</button>
        

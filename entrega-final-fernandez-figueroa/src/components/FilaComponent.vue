@@ -11,7 +11,6 @@
                 <button class="bg-dark text-warning"  @click="obtenerDatosEditar(persona.id),cambiarBotones()">Editar</button> 
                 <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
             </td> 
-
         </tr>    
 </template>
 <script>
