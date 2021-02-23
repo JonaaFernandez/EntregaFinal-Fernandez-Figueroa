@@ -20,8 +20,8 @@
                     :key="persona.id"
                     :persona="persona"
                     @deleteClicked="deleteClicked"
-                    
-                   
+                    @datosEditar="inyectar()"
+                    @editClicked="editClicked"
 
                     ></FilaComponent>
                     
@@ -30,8 +30,9 @@
 
         <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirForm()">Agregar Persona</button>
        
-         <div id="formulario" v-on:abrirElForm="abrilo()"  class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
+         <div id="formulario" @abrirElForm="abrirFormulario()"  class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
             <div class="p-4">
+                <input class="m-1 d-none" type="text" placeholder="Ingrese Nombre" v-model="idVm">
             <p>Ingrese Nombre</p>
             <input class="m-1" type="text" id="inpNombre" placeholder="Ingrese Nombre" v-model="nombreVm">
             <p>Ingrese Apellido</p>
@@ -42,8 +43,8 @@
             <input class="m-1" type="text" id="inpTema" placeholder="Ingrese Tema"  v-model="temaVm">
             <p>Ingrese Año</p>
             <input class="m-1" type="text" id="inpAnio" placeholder="Ingrese Año"  v-model="anioVm">
-            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click="agregarFila()">Insertar</button>
-            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1" >Editar</button>
+            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1"   @click="agregarFila()">Insertar</button>
+             <button id="" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click="cargarDatos()"  >Confirmar</button> 
         </div>
     </div>
    
@@ -59,6 +60,7 @@
 
 
     export default {
+
         components: {
             FilaComponent
         },
@@ -66,6 +68,7 @@
             return {
                 personas: [],
                 nuevoUsuario: '',
+                idVm: '',
                 nombreVm: '',
                 apellidoVm: '',
                 emailVm: '',
@@ -92,6 +95,11 @@
                 let formulario = document.getElementById("formulario");
                 formulario.classList.remove("d-none");
             },
+            abrirFormulario() {
+                let formulario = document.getElementById("formulario");
+                formulario.classList.remove("d-none");
+
+            },
             agregarFila() {
                 axios.post('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/', {
 
@@ -113,27 +121,44 @@
                     });
 
             },
-            abrilo() {
-                let formulario = document.getElementById("formulario");
-                formulario.classList.remove("d-none");
 
-            },
-            deleteClicked( /*e*/ ) {
-                /* console.log(e); */
-                axios.get('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas')
-                    .then((response) => {
-                        const data = response.data
-                        this.personas = data;
-                        console.log("LARGO DEL ARREGLO", data);
-                    })
-            },
-            inyectar() {
-                alert("HOLA");
+
+
+            deleteClicked(e) {
+                console.log(e);
+                this.getDatos();
+
             }
         },
+        editClicked(evento) {
+            console.log(evento);
+            this.idVm = evento.idVm
+            this.nombreVm = evento.nombreVm
+            this.apellidoVm = evento.apellidoVm
+            this.emailVm = evento.emailVm
+            this.temaVm = evento.temaVm
+            this.anioVm = evento.anioVm
+        },
 
-        /* FIN METHODS */
-    }; /* fin export default! */
+        cargarDatos() {
+            axios.put("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + this.idVm, {
+                    Nombre: this.nombreVm,
+                    Apellido: this.apellidoVm,
+                    Email: this.emailVm,
+                    Tema: this.temaVm,
+                    Anio: this.anioVm,
+                })
+                .then(response => {
+                    console.log(response.data);
+                    this.getDatos();
+                })
+                .catch(e => console.log(e));
+        },
+
+    }
+
+    /* FIN METHODS */
+    /* fin export default! */
 </script>
 <style>
 
