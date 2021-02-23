@@ -128,32 +128,34 @@
                 console.log(e);
                 this.getDatos();
 
-            }
-        },
-        editClicked(evento) {
-            console.log(evento);
-            this.idVm = evento.idVm
-            this.nombreVm = evento.nombreVm
-            this.apellidoVm = evento.apellidoVm
-            this.emailVm = evento.emailVm
-            this.temaVm = evento.temaVm
-            this.anioVm = evento.anioVm
+            },
+            editClicked(evento) {
+                console.log(evento);
+                this.idVm = evento.idVm
+                this.nombreVm = evento.nombreVm
+                this.apellidoVm = evento.apellidoVm
+                this.emailVm = evento.emailVm
+                this.temaVm = evento.temaVm
+                this.anioVm = evento.anioVm
+            },
+
+            cargarDatos() {
+                axios.put("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + this.idVm, {
+                        Nombre: this.nombreVm,
+                        Apellido: this.apellidoVm,
+                        Email: this.emailVm,
+                        Tema: this.temaVm,
+                        Anio: this.anioVm,
+                    })
+                    .then(response => {
+                        console.log(response.data);
+                        this.getDatos();
+                    })
+                    .catch(e => console.log(e));
+            },
+
         },
 
-        cargarDatos() {
-            axios.put("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + this.idVm, {
-                    Nombre: this.nombreVm,
-                    Apellido: this.apellidoVm,
-                    Email: this.emailVm,
-                    Tema: this.temaVm,
-                    Anio: this.anioVm,
-                })
-                .then(response => {
-                    console.log(response.data);
-                    this.getDatos();
-                })
-                .catch(e => console.log(e));
-        },
 
     }
 
