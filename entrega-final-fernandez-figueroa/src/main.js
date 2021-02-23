@@ -41,6 +41,25 @@ const router = new VueRouter({
     routes
 })
 
+Vue.directive('directivaPersonalizada', function(el, binding) {
+    el.style.backgroundColor = binding.value;
+})
+
+Vue.filter('snippet', function(value) {
+    return value.slice(0, 10) + "..."
+})
+Vue.filter('capitalize', function(value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
+Vue.filter('minuscula', function(value) {
+    return value.toLowerCase();
+})
+
+
+
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);

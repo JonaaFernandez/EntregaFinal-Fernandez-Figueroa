@@ -5,8 +5,8 @@
                 <!-- Logo Image -->
                 <img src="../../images/logocb3.png" width="45" alt="" class="d-inline-block align-middle mr-2">
                 <!-- Logo Text -->
-<!-- 
-                <span class="text-uppercase font-weight-bold">Clean Bandit</span> -->
+
+              
 
             </a>
 

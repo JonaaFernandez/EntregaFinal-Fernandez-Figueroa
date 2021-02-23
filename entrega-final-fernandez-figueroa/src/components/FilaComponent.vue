@@ -1,16 +1,15 @@
 <template>
         <tr>
             <td> {{persona.id}}</td>
-            <td>{{persona.Nombre}}</td>
-            <td>{{persona.Apellido}}</td>
-            <td>{{persona.Email}}</td>
-            <td>{{persona.Tema}}</td>
+            <td>{{persona.Nombre  |minuscula |capitalize}}</td>
+            <td>{{persona.Apellido  |minuscula | capitalize}}</td>
+            <td>{{persona.Email | snippet  |minuscula | capitalize}}</td>
+            <td>{{persona.Tema |minuscula | capitalize }}</td>
             <td>{{persona.Anio}}</td>
+            
             <td class="d-flex justify-content-around table-dark"> 
-                <button class="bg-dark text-warning"  @click="obtenerDatosEditar(persona.id)">Editar</button> 
-                 <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
-            <!--  <button class="bg-dark text-warning" @click="cargarDatos(persona.id)">CARGAR</button>   -->
-
+                <button class="bg-dark text-warning"  @click="obtenerDatosEditar(persona.id),cambiarBotones()">Editar</button> 
+                <button class="bg-dark text-warning" @click="eliminarFila(persona.id)">Eliminar</button> 
             </td> 
 
         </tr>    
@@ -23,20 +22,17 @@
                 type: Object,
                 required: true,
                 personas: [],
-                /*   nombreVm: '', */
-
             },
 
         },
         data() {
             return {
-                idVm: '',
+                /* idVm: '',
                 nombreVm: '',
                 apellidoVm: '',
                 emailVm: '',
                 temaVm: '',
-                anioVm: '',
-
+                anioVm: '', */
             }
         },
         methods: {
@@ -52,7 +48,7 @@
 
                         console.log("BORRE DE LA API LA PERSONA: " + response.data.Nombre)
                         this.personas = response.data.id;
-                        this.$emit('deleteClicked', {
+                        this.$emit('guardarFilaBorrada', {
                             delete: true
                         });
                     })
@@ -67,7 +63,7 @@
                             /*      console.log(response.data); */
                             /* console.log("nombrevM");
                             console.log(this.nombreVm); */
-                        this.$emit("editClicked", {
+                        this.$emit("almacenarData", {
                             idVm: this.persona.id,
                             nombreVm: this.persona.Nombre,
                             apellidoVm: this.persona.Apellido,
@@ -76,15 +72,19 @@
                             anioVm: this.persona.Anio,
                         });
                     })
-                    .catch(e => console.log(e));
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+            },
+            cambiarBotones() {
+                let botonInsertar = document.getElementById("botonInsertar");
+                let botonConfirmar = document.getElementById("botonConfirmar");
+                botonInsertar.classList.add("d-none");
+                botonConfirmar.classList.remove("d-none");
             },
 
-
-
-
-
-
         }
+
     }
 </script>
 
