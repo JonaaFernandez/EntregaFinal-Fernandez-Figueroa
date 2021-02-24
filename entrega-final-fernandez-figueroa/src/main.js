@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-/* secciones */
-import App from './App.vue';
 
-import HomePage from './components/HomePage';
-import Historia from './components/Historia';
+import App from './App.vue';
+/* views */
+import HomePage from '../views/HomePage';
+import Historia from '../views/Historia';
+import Tickets from '../views/Tickets';
+/* component */
 import Noticias from './components/Noticias';
-import Tickets from './components/Tickets';
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -38,22 +39,23 @@ const routes = [ /* revisar  poner "name"*/
 ];
 
 const router = new VueRouter({
-    routes
-})
-
+        routes
+    })
+    /* Directiva personalizada */
 Vue.directive('directivaPersonalizada', function(el, binding) {
-    el.style.backgroundColor = binding.value;
-})
-
+        el.style.backgroundColor = binding.value;
+    })
+    /* Filtro "..." para email */
 Vue.filter('snippet', function(value) {
-    return value.slice(0, 10) + "..."
-})
+        return value.slice(0, 10) + "..."
+    })
+    /* Mayuscula como primer charAt en tabla */
 Vue.filter('capitalize', function(value) {
-    if (!value) return ''
-    value = value.toString()
-    return value.charAt(0).toUpperCase() + value.slice(1)
-})
-
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+    })
+    /* minuscula para los siguientes caracteres */
 Vue.filter('minuscula', function(value) {
     return value.toLowerCase();
 })

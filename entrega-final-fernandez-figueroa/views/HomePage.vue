@@ -17,44 +17,44 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-interval="4000">
-                        <img src="../../images/wp1.jpg" class="d-block w-100" alt="...">
+                        <img src="../images/wp1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
 
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="4000">
-                        <img src="../../images/wp2.jpg" class="d-block w-100" alt="...">
+                        <img src="../images/wp2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
 
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="6000">
-                        <img src="../../images/wp3.jpg" class="d-block w-100" alt="... ">
+                        <img src="../images/wp3.jpg" class="d-block w-100" alt="... ">
                         <div class="carousel-caption d-none d-md-block ">
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="4000">
-                        <img src="../../images/car-4.jpg" class="d-block w-100" alt="... ">
+                        <img src="../images/car-4.jpg" class="d-block w-100" alt="... ">
                         <div class="carousel-caption d-none d-md-block ">
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="4000">
-                        <img src="../../images/car-5.jpg" class="d-block w-100" alt="... ">
+                        <img src="../images/car-5.jpg" class="d-block w-100" alt="... ">
                         <div class="carousel-caption d-none d-md-block ">
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="4000">
-                        <img src="../../images/car-6.jpg" class="d-block w-100" alt="... ">
+                        <img src="../images/car-6.jpg" class="d-block w-100" alt="... ">
                         <div class="carousel-caption d-none d-md-block ">
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="4000">
-                        <img src="../../images/wp5.jpg" class="d-block w-100" alt="... ">
+                        <img src="../images/wp5.jpg" class="d-block w-100" alt="... ">
                         <div class="carousel-caption d-none d-md-block ">
                         </div>
                     </div>
                     <div class="carousel-item" data-interval="4000">
-                        <img src="../../images/wp6.jpg" class="d-block w-100" alt="... ">
+                        <img src="../images/wp6.jpg" class="d-block w-100" alt="... ">
                         <div class="carousel-caption d-none d-md-block ">
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                 <div class="card mt-3 " style="width: 18rem; ">
                     <div class="card-body ">
                         <h5 class="card-title text-center ">Rather Be</h5>
-                        <img src="../../images/top1.jpg" alt=" ">
+                        <img src="../images/top1.jpg" alt=" ">
                         <a href="https://www.youtube.com/watch?v=m-M1AtrxztU&ab_channel=CleanBandit " target="_blank " class="card-link ">Escuchar ahora</a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="card mt-3 " style="width: 18rem; ">
                     <div class="card-body ">
                         <h5 class="card-title text-center ">Rockabye</h5>
-                        <img src="../../images/top2.jpg" alt=" ">
+                        <img src="../images/top2.jpg" alt=" ">
                         <a href="https://www.youtube.com/watch?v=papuvlVeZg8&ab_channel=CleanBandit " target="_blank " class="card-link ">Escuchar ahora</a>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="card mt-3 " style="width: 18rem; ">
                     <div class="card-body ">
                         <h5 class="card-title text-center ">I Miss You</h5>
-                        <img src="../../images/top3.jpg" alt=" ">
+                        <img src="../images/top3.jpg" alt=" ">
                         <a href="https://www.youtube.com/watch?v=uZs1AHQBz24&ab_channel=CleanBandit " target="_blank " class="card-link ">Escuchar ahora</a>
 
                     </div>
@@ -108,7 +108,7 @@
                 <div class="card mt-3 " style="width: 18rem; ">
                     <div class="card-body ">
                         <h5 class="card-title text-center ">Symphony</h5>
-                        <img src="../../images/top2.jpg" alt=" ">
+                        <img src="../images/top2.jpg" alt=" ">
                         <a href="https://www.youtube.com/watch?v=aatr_2MstrI&app=desktop " target="_blank " class="card-link ">Escuchar ahora</a>
 
                     </div>
@@ -117,7 +117,7 @@
                 <div class="card mt-3 " style="width: 18rem; ">
                     <div class="card-body ">
                         <h5 class="card-title text-center ">Tik Tok</h5>
-                        <img src="../../images/top5.jpg" alt=" ">
+                        <img src="../images/top5.jpg" alt=" ">
                         <a href="https://www.youtube.com/watch?v=yC8SPG2LwSA " target="_blank " class="card-link ">Escuchar ahora</a>
 
                     </div>
@@ -125,7 +125,7 @@
                 <div class="card mt-3 " style="width: 18rem; ">
                     <div class="card-body ">
                         <h5 class="card-title text-center ">Solo</h5>
-                        <img src="../../images/top6.jpg" alt=" ">
+                        <img src="../images/top6.jpg" alt=" ">
                         <a href="https://www.youtube.com/watch?v=8JnfIa84TnU&ab_channel=CleanBandit " target="_blank " class="card-link ">Escuchar ahora</a>
 
                     </div>

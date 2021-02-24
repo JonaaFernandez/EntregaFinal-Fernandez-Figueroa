@@ -8,7 +8,6 @@
 
 <script>
     import BarraNav from './components/BarraNav.vue'
-
     import Footer from './components/Footer.vue'
 
     export default {

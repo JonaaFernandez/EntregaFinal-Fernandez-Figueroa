@@ -25,19 +25,55 @@
                     :key="persona.id"
                     :persona="persona"
                     @guardarFilaBorrada="guardarFilaBorrada"
-                    @datosEditar="inyectar()"
                     @almacenarData="almacenarData"
                     ></FilaComponent>
                     
             </table>
         </div>
         <div class="font-weight-bold mb-2 mt-2  d-flex justify-content-center">
-            <label class="mt-1">Buscate tu <span class="font-weight-bolder text-danger">NOMBRE</span>  en la lista: </label>
+            <label class="mt-1">Buscate tu <span class="font-weight-bolder text-danger">NOMBRE</span> (en minuscula) en la lista: </label>
             <input class="mb-2 ml-2" type="text" v-model="busqueda" placeholder="Ingrese nombre">
         </div>
-        <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirFormEditar()">Agregar Persona</button>
-       
-         <div id="formulario" @abrirElForm="abrirFormulario()"  class="bg-dark w-25 text-warning font-weight-bold mx-auto d-none">
+     
+
+       <!--  <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirFormEditar()">Agregar Persona</button> -->
+       <!-- modal agregar -->
+                   <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary bg-dark text-warning" data-toggle="modal" data-target="#exampleModal">Agregar Nueva Persona</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-warning">
+          <h5 class="modal-title " id="exampleModalLabel">Complete los campos: </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-dark text-warning">
+            <input class="d-none" type="text"  v-model="idVm">
+            <p class="">Ingrese Nombre</p>
+            <input class="" type="text"   v-model="nombreVm">
+            <p class="mt-2">Ingrese Apellido</p>
+            <input class="" type="text"   v-model="apellidoVm">
+            <p class="mt-2">Ingrese Email</p>
+            <input class="" type="text"   v-model="emailVm">
+            <p class="mt-2">Ingrese Tema</p>
+            <input class="" type="text"   v-model="temaVm">
+            <p class="mt-2">Ingrese Año</p>
+            <input class="" type="text"   v-model="anioVm">
+        </div>
+        <div class="modal-footer bg-dark text-warning">
+            <button type="button" class="btn btn-success"  data-dismiss="modal" @click="agregarFila()">Insertar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+       <!-- fin modal agregar -->
+
+       <div id="formulario" @abrirElForm="abrirFormulario()"  class="bg-dark w-25 mt-3 text-warning font-weight-bold mx-auto d-none">
             <div class="p-4">
                 <input class="m-1 d-none" type="text" placeholder="Ingrese Nombre" v-model="idVm">
             <p>Ingrese Nombre</p>
@@ -51,11 +87,12 @@
             <p>Ingrese Año</p>
             <input class="m-1" type="text" id="inpAnio" placeholder="Ingrese Año"  v-model="anioVm">
 
-            <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1"  @click="agregarFila()">Insertar</button>
-          
+            <!--  <button id="botonInsertar" class="bg-dark font-weight-bold text-warning border-1 mt-1"  @click="agregarFila()">Insertar</button> -->
+           
             <button id="botonConfirmar" class="bg-dark font-weight-bold text-warning border-1 mt-1" @click="cargarDatos()">Confirmar</button> 
-            </div>
-        </div> 
+        </div>
+        </div>  
+        
    
 </div>
 
@@ -63,9 +100,10 @@
 </template>
 
 <script>
-    import FilaComponent from './FilaComponent'
+    import FilaComponent from './FilaComponent';
 
-    import axios from "axios"
+
+    import axios from "axios";
 
     export default {
 
@@ -81,12 +119,12 @@
         },
         components: {
             FilaComponent,
-
         },
         computed: {
             personaFiltrada: function() {
                 return this.personas.filter((persona) => {
                     return persona.Nombre.toLowerCase().match(this.busqueda);
+
                 })
             }
         },
@@ -159,12 +197,12 @@
                 this.resetInputs();
                 this.cerrarFormulario()
             },
-            abrirFormEditar() {
+            /* abrirFormEditar() {
                 let formulario = document.getElementById("formulario");
                 let botonConfirmar = document.getElementById("botonConfirmar");
                 formulario.classList.remove("d-none");
                 botonConfirmar.classList.add("d-none");
-            },
+            }, */
             resetInputs() {
                 this.nombreVm = '';
                 this.apellidoVm = '';
@@ -173,6 +211,7 @@
                 this.anioVm = '';
             },
             almacenarData(evento) {
+
                 console.log(evento);
                 this.idVm = evento.idVm
                 this.nombreVm = evento.nombreVm
@@ -196,8 +235,8 @@
             cerrarFormulario() {
                 let formulario = document.getElementById("formulario");
                 formulario.classList.add("d-none");
-                let botonInsertar = document.getElementById("botonInsertar");
-                botonInsertar.classList.remove("d-none");
+                /* let botonInsertar = document.getElementById("botonInsertar");
+                botonInsertar.classList.remove("d-none"); */
             }
         },
         /* FIN METHODS */

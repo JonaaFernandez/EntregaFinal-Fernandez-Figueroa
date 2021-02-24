@@ -1,6 +1,7 @@
 <template>
     
     <div>
+    
     <div class="d-flex justify-content-center mt-4">
         <h1 class="display-3">Historia</h1>
     </div>
@@ -16,7 +17,7 @@
             de DJ’s de la talla de Nick Grimshaw, Anie Mac, Rob Da Bank, Huw Stephens, John Kennedy, Edie Temple Morris y Fearne Cottons. Ese mismo año lograron ser teloneros de Redlight, Bib Boi y Rudimental y actuaron en la Secret Garden Party, Bestival
             y el Field Day Festival de Londres.
         </p>
-        <img src="../../images/miembros.jpg" class="col-xl-6  align-self-center" alt=" srcset=">
+        <img src="../images/miembros.jpg" class="col-xl-6  align-self-center" alt=" srcset=">
     </div>
     <article class="row mx-auto d-flex">
         <p class="col-xl-6 centrado parrafo-medio"><span class="span-uppercase"> C</span>lean Bandit también es muy popular por sus videoclips. Lo más importante es que ellos han sido los creadores los vídeos de gran originalidad y calidad, fue tanto que su segundo single (UK Shanty), contó con
@@ -31,7 +32,7 @@
             de la artista Zara Larsson. La canción alcanzó el número uno en Suecia, Noruega y en Reino Unido. Recientemente compartieron su sencillo Disconnect junto a Marina and the Diamonds. El 1 de diciembre de aquel año regresó el violinista de la
             banda. Ahora bien, hace poco se publicaron dos nuevos single: Solo junto a Demi Lovato y Baby en una colaboración con Marina and The Diamonds y Luis Fonsi. Aprovecharon para celebrar sus diez años de existencia.
         </p>
-        <video src="../../videos/Anne Marie – ‘Rockabye’ - Live at Capital’s Summertime Ball 2019.webm" controls auoplay class="col-xl-6 mt-4"></video>
+        <video src="../videos/Anne Marie – ‘Rockabye’ - Live at Capital’s Summertime Ball 2019.webm" controls auoplay class="col-xl-6 mt-4"></video>
      </article>
     <article class="row mx-auto d-flex">
         <p class="col-xl-6 centrado">
@@ -41,7 +42,7 @@
             perder la pista.
         </p>
 
-         <video src="../../videos/Clean Bandit - Symphony (feat. Zara Larsson) [Official Video].webm" controls auoplay class="col-xl-6 mt-4"></video>
+         <video src="../videos/Clean Bandit - Symphony (feat. Zara Larsson) [Official Video].webm" controls auoplay class="col-xl-6 mt-4"></video>
  
     </article>
     <!-- Fin contenido historia -->
