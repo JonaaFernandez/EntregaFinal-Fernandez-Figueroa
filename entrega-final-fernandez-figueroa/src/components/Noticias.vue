@@ -36,13 +36,13 @@
         </div>
      
 
-       <!--  <button id="btnForm" class="mb-2 bg-dark text-warning" @click="abrirFormEditar()">Agregar Persona</button> -->
-       <!-- modal agregar -->
-                   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary bg-dark text-warning" data-toggle="modal" data-target="#exampleModal">Agregar Nueva Persona</button>
+       
+       <!-- MODAL AGREGAR -->
+                 
+<button type="button" class="btn btn-primary bg-dark text-warning" data-toggle="modal" data-target="#modalAgregar">Agregar Nueva Persona</button>
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal Agregar -->
+  <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-warning">
@@ -71,8 +71,8 @@
       </div>
     </div>
   </div>
-       <!-- fin modal agregar -->
 
+<!-- Formulario para editar -->
        <div id="formulario" @abrirElForm="abrirFormulario()"  class="bg-dark w-25 mt-3 text-warning font-weight-bold mx-auto d-none">
             <div class="p-4">
                 <input class="m-1 d-none" type="text" placeholder="Ingrese Nombre" v-model="idVm">
@@ -107,32 +107,21 @@
 
     export default {
 
-        props: {
-            formAbierto: {
-                type: Boolean,
-                default: false,
-            },
-            esEditar: {
-                type: Boolean,
-                default: false,
-            }
-        },
         components: {
             FilaComponent,
         },
-        computed: {
+        computed: { /* busqueda por letra */
             personaFiltrada: function() {
                 return this.personas.filter((persona) => {
                     return persona.Nombre.toLowerCase().match(this.busqueda);
-
                 })
-            }
-        },
+            },
 
+        },
         data() {
             return {
                 personas: [],
-                nuevoUsuario: '',
+
                 idVm: '',
                 nombreVm: '',
                 apellidoVm: '',
@@ -170,15 +159,27 @@
 
                     })
                     .then((response) => {
+
                         const data = response.data
                         this.nuevoUsuario = data;
-                        this.personas.push(response.data);
+
+                        this.resetInputs();
+                        this.getDatos();
 
                     })
                     .catch(function(error) {
                         console.log(error);
                     });
-                this.resetInputs();
+
+            },
+            almacenarData(evento) {
+                console.log(evento);
+                this.idVm = evento.idVm
+                this.nombreVm = evento.nombreVm
+                this.apellidoVm = evento.apellidoVm
+                this.emailVm = evento.emailVm
+                this.temaVm = evento.temaVm
+                this.anioVm = evento.anioVm
             },
             cargarDatos() {
                 axios.put("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + this.idVm, {
@@ -203,28 +204,18 @@
                 formulario.classList.remove("d-none");
                 botonConfirmar.classList.add("d-none");
             }, */
+
+
+            guardarFilaBorrada(e) {
+                console.log(e);
+                this.getDatos();
+            },
             resetInputs() {
                 this.nombreVm = '';
                 this.apellidoVm = '';
                 this.emailVm = '';
                 this.temaVm = '';
                 this.anioVm = '';
-            },
-            almacenarData(evento) {
-
-                console.log(evento);
-                this.idVm = evento.idVm
-                this.nombreVm = evento.nombreVm
-                this.apellidoVm = evento.apellidoVm
-                this.emailVm = evento.emailVm
-                this.temaVm = evento.temaVm
-                this.anioVm = evento.anioVm
-
-            },
-            guardarFilaBorrada(e) {
-                console.log(e);
-                this.getDatos();
-
             },
             abrirFormulario() {
                 let formulario = document.getElementById("formulario");
@@ -237,7 +228,8 @@
                 formulario.classList.add("d-none");
                 /* let botonInsertar = document.getElementById("botonInsertar");
                 botonInsertar.classList.remove("d-none"); */
-            }
+            },
+
         },
         /* FIN METHODS */
 
