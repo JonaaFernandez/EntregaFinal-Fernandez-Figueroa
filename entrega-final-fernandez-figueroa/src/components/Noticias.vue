@@ -30,6 +30,7 @@
                     
             </table>
         </div>
+       
         <div class="font-weight-bold mb-2 mt-2  d-flex justify-content-center">
             <label class="mt-1">Buscate tu <span class="font-weight-bolder text-danger">NOMBRE</span> (en minuscula) en la lista: </label>
             <input class="mb-2 ml-2" type="text" v-model="busqueda" placeholder="Ingrese nombre">
@@ -121,13 +122,15 @@
         data() {
             return {
                 personas: [],
-
+                /* vinculamos los inputs del modal agregar */
                 idVm: '',
                 nombreVm: '',
                 apellidoVm: '',
                 emailVm: '',
                 temaVm: '',
                 anioVm: '',
+
+
 
                 color: '',
                 busqueda: '',
@@ -149,8 +152,8 @@
                     .catch(e => console.log(e))
             },
             agregarFila() {
-                axios.post('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/', {
 
+                axios.post('https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/', {
                         Nombre: this.nombreVm,
                         Apellido: this.apellidoVm,
                         Email: this.emailVm,
@@ -173,16 +176,18 @@
 
             },
             almacenarData(evento) {
-                console.log(evento);
-                this.idVm = evento.idVm
-                this.nombreVm = evento.nombreVm
-                this.apellidoVm = evento.apellidoVm
-                this.emailVm = evento.emailVm
-                this.temaVm = evento.temaVm
-                this.anioVm = evento.anioVm
+                console.log("Data almacenada", evento);
+                /* almacenamos los datos que traemos y los montamos en los inputs del form */
+                this.idVm = evento.idVmEditar
+                this.nombreVm = evento.nombreVmEditar
+                this.apellidoVm = evento.apellidoVmEditar
+                this.emailVm = evento.emailVmEditar
+                this.temaVm = evento.temaVmEditar
+                this.anioVm = evento.anioVmEditar
             },
             cargarDatos() {
                 axios.put("https://603047d0a1e9d20017af1a3b.mockapi.io/ListaTemas/" + this.idVm, {
+                        /* asignamos los nuevos datos */
                         Nombre: this.nombreVm,
                         Apellido: this.apellidoVm,
                         Email: this.emailVm,
@@ -198,18 +203,15 @@
                 this.resetInputs();
                 this.cerrarFormulario()
             },
-            /* abrirFormEditar() {
-                let formulario = document.getElementById("formulario");
-                let botonConfirmar = document.getElementById("botonConfirmar");
-                formulario.classList.remove("d-none");
-                botonConfirmar.classList.add("d-none");
-            }, */
+
 
 
             guardarFilaBorrada(e) {
-                console.log(e);
+                /* le avisamos al padre que ya borramos la fila */
+                console.log("Borramos la peronsa con la ID: ", e.id);
                 this.getDatos();
             },
+
             resetInputs() {
                 this.nombreVm = '';
                 this.apellidoVm = '';
@@ -217,6 +219,7 @@
                 this.temaVm = '';
                 this.anioVm = '';
             },
+
             abrirFormulario() {
                 let formulario = document.getElementById("formulario");
                 formulario.classList.remove("d-none");
@@ -226,8 +229,6 @@
             cerrarFormulario() {
                 let formulario = document.getElementById("formulario");
                 formulario.classList.add("d-none");
-                /* let botonInsertar = document.getElementById("botonInsertar");
-                botonInsertar.classList.remove("d-none"); */
             },
 
         },

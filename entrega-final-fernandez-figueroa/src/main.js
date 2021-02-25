@@ -39,9 +39,11 @@ const routes = [ /* revisar  poner "name"*/
 ];
 
 const router = new VueRouter({
-        routes
-    })
-    /* Directiva personalizada */
+    routes
+})
+
+
+/* Directiva personalizada */
 Vue.directive('directivaPersonalizada', function(el, binding) {
         el.style.backgroundColor = binding.value;
     })
