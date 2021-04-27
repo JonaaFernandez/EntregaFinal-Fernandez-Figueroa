@@ -14,9 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
-const routes = [ /* revisar  poner "name"*/
-
-    {
+const routes = [ /* revisar  poner "name"*/ {
         path: "/",
         name: "Homepage",
         component: HomePage

@@ -140,7 +140,6 @@
 
         mounted() {
             this.getDatos();
-
         },
         methods: {
             getDatos() {
